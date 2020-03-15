@@ -15,27 +15,27 @@
 			<div class="label">
 
 				<font face="微軟正黑體">
-					<p style="color: #A11E4A; font-size: 2vw">
+					<p style="color: #A11E4A; font-size: 1.5vw">
 						<b>會員管理</b>
 					</p> <!-- 會員帳號 --> <!-- 更改 --> <span style="color: #8DA8A6;"><input
-						style="width: 30vw; height: 2vw" type="hidden"
+						style="width:100%; height: 1.7vw" type="hidden"
 						value="${user.email}">${user.email} |</span> <!-- 生日 --> <!-- 更改 -->
 					<span style="color: #8DA8A6;"><input
-						style="width: 30vw; height: 2vw;" type="hidden"
+						style="width:100%; height: 1.7vw;" type="hidden"
 						value="${user.bday}">${user.bday}</span><br>
-				<br> <label>姓名*</label><br> <input style="width: 30vw; height: 2vw"
+				<br> <label>姓名*</label><br> <input style="width:100%; height:1.7vw"
 					type="text" name="name" id="name" value="${user.name}"
 					required="required" /><br>
-				<br> <label>密碼*</label><br> <input style="width: 30vw; height: 2vw"
+				<br> <label>密碼*</label><br> <input style="width:100%; height: 1.7vw"
 					type="password" name="password" id="password"
 					　value="${user.password}" required="required" /><br>
-				<br> <label>確認密碼*</label><br> <input style="width: 30vw; height: 2vw"
+				<br> <label>確認密碼*</label><br> <input style="width:100%; height: 1.7vw"
 					type="password" name="password2" id="password2"
 					value="${user.password}" required="required" /><br>
-				<br> <label>聯絡電話*</label><br> <input style="width: 30vw; height: 2vw"
+				<br> <label>聯絡電話*</label><br> <input style="width:100%; height: 1.7vw"
 					type="text" name="mobile" id="mobile" value="${user.mobile}"
 					placeholder="09xx-xxx-xxx" required="required" /><br>
-				<br> <label>通訊地址*</label><br> <input style="width: 30vw; height: 2vw"
+				<br> <label>通訊地址*</label><br> <input style="width:100%; height:1.7vw"
 					type="text" name="address" id="address" value="${user.address}"
 					required="required" /><br>
 				<br>

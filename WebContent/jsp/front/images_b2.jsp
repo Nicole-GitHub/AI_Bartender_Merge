@@ -8,7 +8,8 @@
 <style>
 body {
 	background-image: url(../../imgs/common/WebPhoto/index.jpg);
-	background-size: 100%;
+	background-size: cover;
+    background-attachment: fixed;
 }
 
 table {
@@ -50,12 +51,8 @@ $(function(){
 		</tr>
 		<tr>
 			<td width="70">
-			<td id=ai colspan="2" align="center">
-				<a class="button" href="AiSommelier_c3.jsp">進入AI侍酒師</a>
-			</td>
-			<td id=shop colspan="2" align="center">
-				<a class="button" href="../../wineshop_b2">直接逛酒窖</a>
-			</td>
+			<td id=ai colspan="2" align="center"><a class="button" href="AiSommelier_c3.jsp">進入AI侍酒師</a></td>
+			<td id=shop colspan="2" align="center"><a class="button" href="../../wineshop_b2">直接逛酒窖</a></td>
 			<td width="70">
 		</tr>
 	</table>

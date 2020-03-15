@@ -50,24 +50,23 @@
 		<table border="0">
 			<tr>
 				<c:forEach var="li" items="${list}" varStatus="vs">
-					<td>
-						<a  href="wineshop_b2?id=${li.id}"><img src="${li.imgPath }" width=150px><br>
-							<p>${li.enName}</p> <br>
-							<p>${li.chName}</p> <hr>
+					<td width="25%">
+						<a href="wineshop_b2?id=${li.id}" style="text-decoration: none;">
+							<img src="${li.imgPath }" width=150px><br>
+							<p>${li.enName}</p>
+							<p>${li.chName}</p> 
+						</a>
+						<hr>
 						<!--EL語法,市價取整數-->
 						<fmt:formatNumber var="na" type="number" value="${li.price/0.8}" maxFractionDigits="0"/>						
-							<p1>市價:${na}</p1>
-							<p>會員價:<p2>${li.price }</p2></p>
-						</a>
+						市價:<p1>${na}</p1>
+						<p>會員價:<p2>${li.price }</p2></p>
 						
 						<input type="hidden" id="id" value="${li.id}">
-						數量: <input type="number" name="quantity" min="1" max="10" value="1"><br> 
+						數量: <input type="number" name="quantity" min="1" max="999" value="1">
 						<input type="button" id="addcart" style="background-color:#A11E4A;color:white;" value="加入詢問單">
 					</td>
-					<c:if test="${vs.count%4==0}">
-						</tr>
-						<tr>
-					</c:if>
+					${vs.count%4==0 ? '</tr><tr>' : ''}
 				</c:forEach>
 			</tr>
 		</table>
@@ -83,9 +82,9 @@
 			"id" : pid,
 			"quantity" : q
 		}, function(data) {
-			$("#div3").html(data);
+			window.location.reload();
+			alert("成功加入購物車");
 		});
-		alert("加入購物車成功");
 	});
 	$(document).on("click", ".delCheckBoxRS", function() {
 		var thisVal = $(this).attr("val");

@@ -92,7 +92,7 @@
 					<tr>
 						<th><label>酒精濃度：</label></th>
 						<td>
-							<input type="number" id="percent" name="percent" max=100 min=0 value="${empty wineList[0].percent ? 0 : wineList[0].percent}">
+							<input type="number" id="percent" name="percent" max=100 min=0 step="0.1" value="${empty wineList[0].percent ? 0.0 : wineList[0].percent}">
 						</td>
 						<th><label>容量：</label></th>
 						<td>

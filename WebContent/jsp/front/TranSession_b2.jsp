@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"
-	import="java.util.*"%>
+	import="java.util.*,util.CommonUtil"%>
     
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>TranSession_b2</title>
@@ -21,6 +21,7 @@
         <%
         	String Id = request.getParameter("id");
         	String Quantity = request.getParameter("quantity");
+        	Integer BuyCount = new CommonUtil().StringToInt(session.getAttribute("BuyCount"));
         	ArrayList<Map<String,String>> buylist;
         	if((session.getAttribute("Buylist"))==null){
         		buylist = new ArrayList<Map<String,String>>();
@@ -33,8 +34,10 @@
 	        map.put("quantity", Quantity);	        
 	        
 	        buylist.add(map);
-        
 	        session.setAttribute("Buylist", buylist);
+	        
+	        BuyCount += Integer.parseInt(Quantity);
+	        session.setAttribute("BuyCount", BuyCount);
 	       	
 	        
         %>         

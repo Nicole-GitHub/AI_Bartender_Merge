@@ -6,6 +6,7 @@
 <jsp:include page="header.jsp">
 	<jsp:param value="true" name="isServlet" />
 </jsp:include>
+<div class="content">
         <link rel="stylesheet" href="./css/front/wine_b2.css"/>
 		<link rel="stylesheet" href="./css/front/shop_b2.css"/>
 	<!-- <div id="div2">show</div> -->
@@ -42,8 +43,8 @@
 			 </table>
 			</div>
       </div> 
-      
-      <script>
+</div>
+<script>
 
 function addcart(){
 	//var t=0;
@@ -52,13 +53,41 @@ function addcart(){
 	//alert(wineID);
 	//alert(Quantity); 
 	$.post("jsp/front/TranSession_b2.jsp",{id:wineID,quantity:Quantity},function(data){
+		window.location.reload();
         alert("加入購物車成功");
 		//t=$("#asd").text();
 		//t++;
 		//$("#asd").text(t);
-		$("#div2").html(data);
+		//$("#div2").html(data);
 		});
 	}	
+$(function(){
+	resize();
+	$(window).resize(function () {
+		resize();
+	});
+	
+    function resize(){
+		var bodyh = $(".content").height();
+		windowResize(bodyh);
+	}
+
+	function windowResize(bodyh){
+		var vh = $(window).height();
+		var headerh = $(".header").height();
+		var banner = $(".banner").height();
+		var banner2 = $(".banner2").height();
+		var footerh = $(".footer").height();
+		var otherh = vh - headerh - footerh - banner - banner2;
+		if (bodyh < otherh) {
+			$(".footer").addClass("positionFix");
+			$(".bodyRight").add(".bgImg").height(otherh);
+		}else{
+			$(".footer").removeClass("positionFix");
+			$(".bodyRight").add(".bgImg").height(bodyh);
+		}
+	}
+});
 
 </script>
      

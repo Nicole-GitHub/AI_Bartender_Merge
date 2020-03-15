@@ -35,7 +35,12 @@
 	                   <a href="${param.isServlet ? '.' : '../..'}/jsp/front/PO.jsp"><span>查詢問單</span></a>&emsp;
 	                   <a href="${param.isServlet ? '.' : '../..'}/LogoutServlet_b1"><span>登出</span></a>&emsp;
                    </c:if>
-                   <a href="${param.isServlet ? '.' : '../..'}/jsp/front/cart.jsp"><img src="${param.isServlet ? '.' : '../..'}/imgs/common/webImg-03.png" class="cart" /></a>
+                   <a href="${param.isServlet ? '.' : '../..'}/jsp/front/cart.jsp">
+                   		<img src="${param.isServlet ? '.' : '../..'}/imgs/common/webImg-03.png" class="cart" />
+                   		<c:if test="${not empty BuyCount}">
+                   			<span>(${sessionScope.BuyCount})</span>
+                   		</c:if>
+                   </a>
                </div>
            </div>
        </div>

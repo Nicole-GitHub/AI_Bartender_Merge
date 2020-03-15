@@ -79,6 +79,7 @@ public class POServlet extends HttpServlet {
 	        Json2Entity(po);
 			b = dao.update(po,common);
 			request.getSession().removeAttribute("Buylist");
+			request.getSession().removeAttribute("BuyCount");
 			
 		}else {
 			System.out.println("Error: 刪除時id不可為空");

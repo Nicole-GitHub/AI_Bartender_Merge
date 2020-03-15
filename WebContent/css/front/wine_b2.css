@@ -35,15 +35,16 @@ ul li{
 /*列出商品*/
 .showWine{
 	background-image: url(../../imgs/common/webImg-15.png) ;
-	background-size:100%;
 	padding-top: 3vh;
-    /*top: 17vw;*/
-    /*z-index: -1;*/
+    background-size: 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: top;
 }
 .showWine table{
 	margin:auto;
 	width:70%;	
-	font-size:0.5vw;
+	font-size:0.8vw;
 	text-align:center;
 	border-spacing: 1.5vw;
 	color:#393332;
@@ -51,14 +52,16 @@ ul li{
 }
 .showWine td {
 	border: 1px black solid;
-	padding:2vw;
+	padding:1vh 1vw;
 	background:white;
 }
 .showWine p{
 	color:#393332;
+	margin:0.5vh;
 	font-family:Arial, Microsoft JhengHei;
 }
 .showWine p2{
+	font-weight: bold;
 	color:#A11E4A;
 	font-family:Arial, Microsoft JhengHei;
 }
@@ -70,11 +73,11 @@ ul li{
 }
 
 .showCheckBoxRS {
-	border: 0 !important; 
-	padding: 0 !important; 
-	background: transparent !important; 
-	color:red !important; 
-	font-weight:bold !important;
-	margin:auto !important;
-	width: 50% !important;
+	border: 0 ; 
+	padding: 0 ; 
+	background: transparent ; 
+	color:red ; 
+	font-weight:bold ;
+	margin:auto ;
+	width: 50% ;
 }
