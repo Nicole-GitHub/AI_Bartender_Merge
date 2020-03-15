@@ -1,0 +1,42 @@
+
+
+.body .bgImg{
+    background-size: 100%;
+    background-position: bottom;
+	background-repeat: no-repeat;
+}
+.body .bgImg16{
+	background-image: url(../../imgs/common/webImg-16.png);
+}
+.body .content{
+	padding:2vh;
+	margin:auto;
+	width:30%;
+	font-family: Arial, Microsoft JhengHei;
+	
+}
+
+.body .content label{
+	font-size:1.2vw;
+	margin-top:20px;
+	font-family: Arial, Microsoft JhengHei;
+	
+}
+
+.body .content a{
+	margin-left:23vw;
+	margin-top:5px;
+	font-size:1vw;
+	font-family: Arial, Microsoft JhengHei;
+}
+
+.body .content .btn{
+	width:90px;
+	height:40px;
+	border:none;
+	background-color:#720000;
+	color:white;
+	font-size:1vw;
+	font-family: Arial, Microsoft JhengHei;
+	
+}

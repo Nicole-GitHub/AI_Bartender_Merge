@@ -1,0 +1,80 @@
+
+.filter{
+	margin:auto;
+    width:50%;
+    position: absolute;
+    padding: 0 25vw;
+}
+
+
+/*下拉選單*/
+.select{
+	width:12vw;
+	text-align:center;
+	float:left;
+	}
+.select p{
+	margin:0;
+	padding:1vw;
+}
+.option{
+	border:1px gray solid;
+	display:none;
+	background-color: white;
+	}
+ul{
+	list-style:none;
+	margin:0;
+	padding:0;
+	}
+ul li{
+	cursor:pointer;
+	margin:0.8vw;
+	}
+
+/*列出商品*/
+.showWine{
+	background-image: url(../../imgs/common/webImg-15.png) ;
+	background-size:100%;
+	padding-top: 3vh;
+    /*top: 17vw;*/
+    /*z-index: -1;*/
+}
+.showWine table{
+	margin:auto;
+	width:70%;	
+	font-size:0.5vw;
+	text-align:center;
+	border-spacing: 1.5vw;
+	color:#393332;
+	font-family:Arial, Microsoft JhengHei;
+}
+.showWine td {
+	border: 1px black solid;
+	padding:2vw;
+	background:white;
+}
+.showWine p{
+	color:#393332;
+	font-family:Arial, Microsoft JhengHei;
+}
+.showWine p2{
+	color:#A11E4A;
+	font-family:Arial, Microsoft JhengHei;
+}
+
+.showWine p1{
+	color:#393332;
+	font-family:Arial, Microsoft JhengHei;
+	text-decoration:line-through;
+}
+
+.showCheckBoxRS {
+	border: 0 !important; 
+	padding: 0 !important; 
+	background: transparent !important; 
+	color:red !important; 
+	font-weight:bold !important;
+	margin:auto !important;
+	width: 50% !important;
+}
