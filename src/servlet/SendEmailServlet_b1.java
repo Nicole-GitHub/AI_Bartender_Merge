@@ -89,9 +89,24 @@ public class SendEmailServlet_b1 extends HttpServlet {
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
 			if(act.equals("forgetpass_b1")) {
 				message.setSubject("AI_Bartender：重新設定密碼");
-				message.setContent("<font face=\"微軟正黑體\"><h2>您好:<br/>您已申請重新設置密碼功能，此郵件會協助您重新設置密碼。<br/>請先使用認證密碼登入後再至會員管理自行修改:"+user.getPassword()+"<br/>請使用下列連結進行密碼重置："
-						+ "</h2></font><h2><font face=\"微軟正黑體\"><u><a href='"+request.getRequestURL()+"/../jsp/front/login_b1.jsp?email="+to+"'>"
-								+ "點擊驗證重置密碼</u><br/><br/>AI_Bartender 敬上</h2></font></a>", "text/html;charset=utf-8");
+				message.setContent(
+						"<font face=\"微軟正黑體\">"
+						+ "	<h2>您好:<br/>"
+						+ "		您已申請重新設置密碼功能，此郵件會協助您重新設置密碼。<br/>"
+						+ "		請先使用認證密碼登入後再至會員管理自行修改:"+user.getPassword()+"<br/>"
+						+ "		請使用下列連結進行密碼重置："
+						+ "	</h2>"
+						+ "</font>"
+						+ "<h2>"
+						+ "	<font face=\"微軟正黑體\">"
+						+ "		<u>"
+						+ "			<a href='"+request.getRequestURL()+"/../jsp/front/login_b1.jsp?email="+to+"'> 點擊驗證重置密碼</a>"
+						+ "		</u>"
+						+ "		<br/><br/>"
+						+ "		AI_Bartender 敬上"
+						+ "	</font>"
+						+ "</h2>"
+						, "text/html;charset=utf-8");
 				Transport transport = session.getTransport("smtp");
 				transport.connect(host, port, username, password);
 				Transport.send(message);

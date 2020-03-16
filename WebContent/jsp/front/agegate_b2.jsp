@@ -47,12 +47,12 @@ function ageWarn()
 }
 $(function(){
 	$(".btnY").hover(function(){
-		$(this).attr("src","../../imgs/common/webImg-35.jpg");
+		$(this).attr("src","../../imgs/common/webImg-35.png");
 	},function(){ 
 		$(this).attr("src","../../imgs/common/webImg-06.png");
 	});
 	$(".btnN").hover(function(){
-		$(this).attr("src","../../imgs/common/webImg-36.jpg");
+		$(this).attr("src","../../imgs/common/webImg-36.png");
 	},function(){ 
 		$(this).attr("src","../../imgs/common/webImg-07.png");
 	});
