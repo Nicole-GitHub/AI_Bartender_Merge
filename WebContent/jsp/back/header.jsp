@@ -15,8 +15,8 @@
                <img src="${param.isServlet ? '.' : '../..'}/imgs/common/webImg-30.png" />
            </div>
            <div class="loginInfo">
-               <div> 管理員 admin
-               		<a href="${param.isServlet ? '.' : '../..'}/LogoutServlet_b1"><span>登出</span></a>&emsp;
+               <div> 管理員 admin &emsp; &emsp;
+               		<a style="color:#E79550;text-decoration:none;" href="${param.isServlet ? '.' : '../..'}/LogoutServlet_b1"><span>登出</span></a>&emsp;
                </div>
            </div>
            <div class="banner"></div>

@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=BIG5"
-    pageEncoding="BIG5"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="BIG5">
-<title>AI¨Í°s®vsommelier_AGEGATE</title>
+<title>AIä¾é…’å¸«sommelier_AGEGATE</title>
 <script src="../../js/jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
 
 <style>
@@ -16,7 +16,7 @@
  
 .age_gate{
  margin:auto;
- margin-top: 18vw;
+ margin-top: 12vw;
  background-color:#E79550;
  width:450px;
  height:300px;
@@ -43,7 +43,7 @@
 <script>
 function ageWarn()
 {
-    alert("´£¿ô±z¡A¤¤µØ¥Á°êªk³W³W©w¡A¥¼º¡¤Q¤K·³½Ğ¤Å¶¼°s¡I");
+    alert("æé†’æ‚¨ï¼Œä¸­è¯æ°‘åœ‹æ³•è¦è¦å®šï¼Œæœªæ»¿åå…«æ­²è«‹å‹¿é£²é…’ï¼");
 }
 $(function(){
 	$(".btnY").hover(function(){
@@ -63,7 +63,7 @@ $(function(){
 <div class="age_gate"  >
 	<img src="../../imgs/common/webImg-01.png" style="width:350px;margin-top:2vh;">
 	<div class="askAge" style="line-height:30px;">
-	<p>±z¬O§_¤wº¡¤Q¤K·³¦Xªk¶¼°s¦~ÄÖ¡H<br/>
+	<p>æ‚¨æ˜¯å¦å·²æ»¿åå…«æ­²åˆæ³•é£²é…’å¹´é½¡ï¼Ÿ<br/>
 	ARE YOU OF LEGAL DRINLING AGE?</p>
 	<div class="btns">
 		<img class="button btnY" src="../../imgs/common/webImg-06.png" onclick="location.href='images_b2.jsp'" >&emsp;&emsp;&emsp;

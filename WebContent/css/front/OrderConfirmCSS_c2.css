@@ -43,10 +43,10 @@ body{
 .content{
    background-image: url(../../imgs/common/webImg-19.png);
    background-repeat: no-repeat;
-    background-position: bottom;
+   background-position: bottom;
    width: 100%;
-   height: 85%;
-   background-size:1400px;
+   height: 95vh;
+   background-size:100%;
    font-family:"Microsoft JhengHei","Arial";
 }
 .content img{
@@ -60,13 +60,13 @@ body{
 
 .content .title{
   color:#A11E4A;
-   margin-left:23%;
+   margin-left:20%;
    margin-top:3%;
    font-size: 1.5vw;
 }
 .content .text{
   color:#393332;
-   margin-left:23%;
+   margin-left:20%;
    margin-top:2%;
    line-height:15px;
 }
@@ -75,7 +75,7 @@ body{
 }
 .buttonGP .button1{
     margin-top:5vh;
-   margin-left:23%;
+   margin-left:20%;
    background-color:#A11E4A;
    color:white;
    width:8vw;

@@ -26,15 +26,13 @@ body{
 	float:right;
 	width:560px;
 	text-align:right;
-	margin-right:2.6VW;
-	margin-top:5.2vw;
+	margin: 5VW 2vw 0vw 0;
 }
 .header .ALloginInfo{
 	float:right;
 	width:560px;
 	text-align:right;
-	margin-right:2.6VW;
-	margin-top:2vw;
+	margin: 2VW 2vw 0vw 0;
 }
 
 .header .ALloginInfo div a{
@@ -48,9 +46,15 @@ body{
 .header .ALloginInfo .welcome{
 	font-size:10pt;
 	color:#E79550;
-	margin:15px;
-
+	margin:0vh 2.5VW 1vh 0vw ;
 }
+.header .ALloginInfo .functionLink{
+	float:right;
+	width:560px;
+	text-align:right;
+	margin: 1.5Vh .3vw 0vh 0vw;
+}
+
 .cart{
 	width:30px;
 	vertical-align: bottom;

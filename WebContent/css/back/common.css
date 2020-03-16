@@ -8,19 +8,22 @@ body{
 
 .header .logo{
 	float:left;
+	margin:3vh 0 0 3vw;
 }
 .header .logo img{
-	height:4vh;
-	margin:3vh 0 0 3vw;
+	width:42vh;
 }
 .header .loginInfo{
 	float:right;
 	margin:3vh 3vw 0 0;
+	font-family: Arial, Microsoft JhengHei;
+	color:#E79550;
+	font-weight: bold;
 }
 .header .loginInfo div{
-	font-size:1vw;
+	font-size:12pt;
 	color:#E79550;
-	margin: 1vw 1vw 0 0;
+	margin: 1vw 1vw 2vh 0;
 }
 .header .banner , .footer .footerTop{
 	width:100%;

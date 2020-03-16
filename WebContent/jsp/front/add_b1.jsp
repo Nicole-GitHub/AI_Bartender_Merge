@@ -32,7 +32,7 @@
 							<label>通訊地址<span class="star">&nbsp;*</span></label></br>
 							<input style="width:100%;height:1.7vw" type="text" name="address"  id="address" required="required"/></br></br>
 							
-							<div><input type="button" class="btn" onclick="add()" value="加入會員" /><a style="color:#E79550;margin-left:13vw" href="login_b1.jsp">已經是會員了?</a></div>
+							<div><input type="button" class="btn" onclick="add()" value="加入會員" /><a style="color:#E79550;margin-left:14.5vw" href="login_b1.jsp">已經是會員了?</a></div>
 							
 							
 							

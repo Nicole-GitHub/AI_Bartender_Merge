@@ -16,7 +16,7 @@
 %>
 <div class="body">
 	<div class="banner2"><img src="../../imgs/common/WebPhoto/photo-04.jpg" style="width:100%"></div>
-	<div class="bgImg17 bgImg">
+	<div class="bgImg">
 		<div class="content">
 			<p><span>詢問單明細</span>&emsp;<span><%=poId %></span></p>
 			

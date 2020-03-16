@@ -14,7 +14,7 @@
 		  	<table class="abSommelier">
 			<tr >
 				<td colspan="2" style="color:#E79550;font-weight:bold;padding:15px 0px;text-decoration:none;">
-				<a href="about_c2.jsp"><span>侍酒師</span></a>&emsp;|&emsp;<a href="aboutTeam_c2.jsp"><span>關於團隊</span></a></td>
+				<a href="about_c2.jsp"><span>關於侍酒師</span></a>&emsp;|&emsp;<a href="aboutTeam_c2.jsp"><span>關於團隊</span></a></td>
 			</tr>
 			</table>
 		<table class="mber1" style="border-spacing:70px 10px;">

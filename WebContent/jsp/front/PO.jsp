@@ -9,7 +9,7 @@
 <script src="../../js/front/PO.js"></script>
 <div class="body">
 	<div class="banner2"><img src="../../imgs/common/WebPhoto/photo-03.jpg" style="width:100%"></div>
-	<div class="bgImg17 bgImg">
+	<div class="bgImg">
 		<div class="content">
 			<p>詢問單</p>
 			<table>

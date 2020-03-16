@@ -24,26 +24,26 @@ div a span{
 	width: 70%;
 	margin:auto;
 	display:none;
-	font-size:17pt;
+	font-size:14pt;
 	font-weight:bold;
-	letter-spacing:3px;
-	line-height:4vh;
+	letter-spacing:2px;
+	line-height:5vh;
 }
 
 .body .QuesWord{
 	position: absolute; 
-	top: 6.5vh; 
+	top: 8vh; 
 	left: 17vw; 
 	color: #F9E7AA;
 }
 
 .body .QuesRadio{
 	position: absolute; 
-	top: 6vw; 
+	top: 6.5vw; 
 	left: 17vw; 
 	color: #F9E7AA;
 	font-family: Arial, Microsoft JhengHei;
-	font-size:17pt;
+	font-size:14pt;
 }
 
 .body .CartButtonSet{

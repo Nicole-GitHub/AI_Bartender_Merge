@@ -4,12 +4,7 @@
     background-size: contain;
     background-position: bottom;
 	background-repeat: no-repeat;
-}
-.body .bgImg17{
 	background-image: url(../../imgs/common/webImg-17-1.png);
-}
-.body .bgImg18{
-	background-image: url(../../imgs/common/webImg-18-1.png);
 }
 .body .content{
 	width:70%;

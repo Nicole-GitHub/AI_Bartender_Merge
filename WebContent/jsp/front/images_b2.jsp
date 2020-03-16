@@ -15,13 +15,13 @@
  table{
 	font-family:Arial, Microsoft JhengHei;
 	font-weight:bold;
-	font-size:16pt;
+	font-size:14pt;
 	color:#F9E7AA;
 	width:60%;
 	margin:auto;
-	margin-top: 28vh;
+	margin-top: 20vh;
 	line-height:30px;
-	letter-spacing:5px;
+	letter-spacing:3px;
 }
 
 .button{
@@ -31,8 +31,8 @@
    border-width:.1px;
    color:white;
    width:12vw;
-   height:5vh;
-   font-size:16pt;
+   height:6vh;
+   font-size:14pt;
    font-weight:bold;
    opacity:.85;
    font-family:"Microsoft JhengHei","Arial";

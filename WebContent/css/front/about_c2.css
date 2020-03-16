@@ -23,7 +23,7 @@ div a span{
 .body .filter {
 	margin:auto;
 	width:100%;
-	height:55vh;
+	height:82vh;
     background:url(../../imgs/common/webImg-21.png);
     background-size: 100%;
     background-position: bottom;
@@ -43,9 +43,8 @@ div a span{
 }	
 
 .body .Teamfilter{
-	margin:auto;
 	width:100%;
-	height:50%;
+	height:45%;
 	color:#F9E7AA;
 	background:url(../../imgs/common/webImg-20.png);
     background-size: 100%;
@@ -53,13 +52,12 @@ div a span{
     background-repeat: no-repeat;
 }
 .body .Teamfilter .mber1{
-	
-	margin-left:18%;
+	margin-left:12%;
 	text-align:center
 }
 
 .body .Teamfilter .mber2{
-	margin-left:16%;
+	margin-left:10%;
 	text-align:center
 }
 
