@@ -1,10 +1,11 @@
 
 .Detailbody{
-	background-image: url(../../imgs/common/webImg-20.png) ;
+	background-image: url(../../imgs/common/webImg-17-1.png) ;
     background-repeat:no-repeat;
-    background-size:100%;
+    background-size:contain;
     /*border: 1px red solid;*/
     overflow: auto;
+    background-position: bottom;
 }
 
 .showDetail{
@@ -12,8 +13,6 @@
     /*margin-left: 20%;*/
     /*margin-bottom: 3%;*/
 	/*overflow: auto;*/
-    
-	
     /*top: 17vw;
     left:25vw;
     z-index: -1;*/
@@ -22,8 +21,8 @@ table{
 	
 	/*margin-left: 5%;*/
     /*width: 100%;*/
-    padding: 8%;
-    width: 70%;
+    padding: 8% 0;
+    width: 80%;
     border: 0;
 	text-align:center;
 	color:#393332;

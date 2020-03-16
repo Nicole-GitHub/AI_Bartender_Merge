@@ -58,8 +58,9 @@
 						<hr>
 						<!--EL語法,市價取整數-->
 						<fmt:formatNumber var="na" type="number" value="${li.price/0.8}" maxFractionDigits="0"/>						
-						市價:<p1>${na}</p1>
-						<p>會員價:<p2>${li.price }</p2></p>
+						<p1>市價:$${na}</p1>
+						<fmt:formatNumber var="mo" type="number" value="${li.price}" maxFractionDigits="0"/>
+						<p>會員價:<p2>$${mo}</p2></p>
 						
 						<input type="hidden" id="id" value="${li.id}">
 						數量: <input type="number" name="quantity" min="1" max="999" value="1">
@@ -79,7 +80,8 @@
 		//alert(q);	
 		$.post("jsp/front/TranSession_b2.jsp", {
 			"id" : pid,
-			"quantity" : q
+			"quantity" : q,
+			action:"addItems"
 		}, function(data) {
 			window.location.reload();
 			alert("成功加入購物車");

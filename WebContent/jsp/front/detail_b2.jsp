@@ -16,16 +16,16 @@
 				<table  align=center border=0 >
 				<c:forEach var="i" items="${list }">
 				<tr>
-				<th width=30% rowspan="2"><img alt="${i.enName}" src="${i.imgPath }" width=300px>
-				<td width=70% align=left><b>${i.enName}<br>${i.chName}</b>
+				<th width=20% rowspan="2"><img alt="${i.enName}" src="${i.imgPath }" width=400px>
+				<td width=80% align=left><b>${i.enName}<br>${i.chName}</b>
 				<hr>
 				<p>${i.feature}</p>
 				<br>
 				
 				<!--EL語法,市價取整數-->
 				<fmt:formatNumber var="na" type="number" value="${i.price/0.8}" maxFractionDigits="0"/>
-				
-				<p1>市價:${na}</p1> &ensp;&ensp;會員價:<p2>$${i.price }</p2>
+				<fmt:formatNumber var="mo" type="number" value="${i.price}" maxFractionDigits="0"/>
+				<p1>市價:$${na}</p1> &ensp;&ensp;會員價:<p2>$${mo }</p2>
 				<hr>
 				<p>酒種:${i.type }&ensp;&ensp;產地:${i.place}</p>
 				<hr>
@@ -40,7 +40,10 @@
    					<input type="button" id="addcart" onclick="addcart()" style="background-color:#A11E4A;color:white;" value="加入詢問單" >
 				
 			    <h6>*以客服人員確認的金額與數量為準</h6>
+			    </tr>
+			    <td><input type="button" class="back" onclick="location.href='../../AI_Bartender_Merge/wineshop_b2'" style="background-color:#A11E4A;color:white;" value="回上一頁" >
 			 </table>
+			 
 			</div>
       </div> 
 </div>
@@ -52,15 +55,20 @@ function addcart(){
 	var Quantity=$("#quantity").val(); 
 	//alert(wineID);
 	//alert(Quantity); 
-	$.post("jsp/front/TranSession_b2.jsp",{id:wineID,quantity:Quantity},function(data){
+	$.post("jsp/front/TranSession_b2.jsp",{id:wineID,quantity:Quantity,action:"addItems"},function(data){
 		window.location.reload();
         alert("加入購物車成功");
 		//t=$("#asd").text();
 		//t++;
 		//$("#asd").text(t);
 		//$("#div2").html(data);
-		});
+		});	
 	}	
+
+
+
+
+
 $(function(){
 	resize();
 	$(window).resize(function () {

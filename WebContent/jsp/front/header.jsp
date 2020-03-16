@@ -10,6 +10,12 @@
 		<link rel="stylesheet" href="${param.isServlet ? '.' : '../..'}/css/front/common.css"/>
 		<script src="${param.isServlet ? '.' : '../..'}/js/jquery-ui-1.12.1.custom/external/jquery/jquery.js"></script>
     	<script src="${param.isServlet ? '.' : '../..'}/js/front/common_b3.js"></script>
+    	
+		<script>
+		if(${Users.email eq 'admin'}){
+			location.href="../back/PO.jsp";
+		}
+		</script>
     </head>
     <body>
     	<!-- header -->

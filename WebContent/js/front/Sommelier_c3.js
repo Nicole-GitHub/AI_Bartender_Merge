@@ -99,7 +99,7 @@ function add(){
 function clicktoShop(){
     var q = $("#quantity").text();
     var SessionID = $("#SessionID").val();
-    $.post("TranSession_b2.jsp",{quantity:q,id:SessionID},function(){
+    $.post("TranSession_b2.jsp",{quantity:q,id:SessionID,action:"addItems"},function(){
     	location.href="cart.jsp";
     });
 //    window.location="TranSession_b2.jsp?quantity="+q+"&id="+SessionID;

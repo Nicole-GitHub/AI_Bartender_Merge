@@ -6,9 +6,9 @@
 </jsp:include>
 <link rel="stylesheet" href="../../css/front/about_c2.css"  type="text/css" />
 	<!-- body -->
-	<div class="body content">
-		<img src="../../imgs/common/WebPhoto/photo-01.jpg" style="width:100%">
-		<div class="filter" >
+	<div class="body">
+		<img class="banner2" src="../../imgs/common/WebPhoto/photo-01.jpg" style="width:100%">
+		<div class="filter content" >
 
 		  <table class="abSommelier">
 			<tr >

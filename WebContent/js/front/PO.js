@@ -37,6 +37,8 @@ $(document).ready(function() {
     		alert("購買數量不可低於1");
     	}else{
     		setSubTotal(tr,price,quantity);
+    		var wineId = $(this).parents("tr").find("[name=wineId]").val();
+    		chgSession(wineId,quantity,"minusItems");
     	}
     });
     // 數量加
@@ -50,6 +52,8 @@ $(document).ready(function() {
     		alert("購買數量不可超過99");
     	}else{
     		setSubTotal(tr,price,quantity);
+    		var wineId = $(this).parents("tr").find("[name=wineId]").val();
+    		chgSession(wineId,quantity,"plusItems");
     	}
     });
 	
@@ -180,7 +184,17 @@ $(document).ready(function() {
     		$("table th").addClass("addBorderBottom");
         }
 		$(this).parents("tr").remove();
+
+		var wineId = $(this).parent().find("[name=wineId]").val();
+		var quantity = $(this).parent().find("[name=quantity]").val();
+		chgSession(wineId,quantity,"delItems");
         resize();
 		setTotal();
 	});
+	
+	function chgSession(wineId,quantity,action){
+		$.post("../../jsp/front/TranSession_b2.jsp",{action:action,id:wineId,quantity:quantity},function(rs){
+			location.reload();
+		});
+	}
 });

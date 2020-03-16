@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 .body .bgImg{
-    background-size: 100%;
+    background-size: contain;
     background-position: bottom;
 	background-repeat: no-repeat;
 }

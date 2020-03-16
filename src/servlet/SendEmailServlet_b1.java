@@ -1,8 +1,8 @@
 package servlet;
 
-
-import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Properties;
 
 import javax.mail.Authenticator;
@@ -23,6 +23,8 @@ import javax.servlet.http.HttpServletResponse;
 import dao.UserDao_b1;
 
 import model.User_b1;
+import util.DateUtil;
+import util.GenRandomPassword;
 
 /**
  * Servlet implementation class SendEmailServlet
@@ -88,12 +90,13 @@ public class SendEmailServlet_b1 extends HttpServlet {
 			message.setFrom(new InternetAddress(username));
 			message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
 			if(act.equals("forgetpass_b1")) {
+				String newRandomPassword = GenRandomPassword.getPassword(10);
 				message.setSubject("AI_Bartender：重新設定密碼");
 				message.setContent(
 						"<font face=\"微軟正黑體\">"
 						+ "	<h2>您好:<br/>"
 						+ "		您已申請重新設置密碼功能，此郵件會協助您重新設置密碼。<br/>"
-						+ "		請先使用認證密碼登入後再至會員管理自行修改:"+user.getPassword()+"<br/>"
+						+ "		請先使用認證密碼登入後再至會員管理自行修改:"+newRandomPassword+"<br/>"
 						+ "		請使用下列連結進行密碼重置："
 						+ "	</h2>"
 						+ "</font>"
@@ -110,10 +113,17 @@ public class SendEmailServlet_b1 extends HttpServlet {
 				Transport transport = session.getTransport("smtp");
 				transport.connect(host, port, username, password);
 				Transport.send(message);
-				}else {
-					message.setSubject("查無此帳號");
-					
-				}
+				
+				user.setName(user.getName());
+				user.setPassword(newRandomPassword);
+				user.setMobile(user.getMobile());
+				user.setAddress(user.getAddress());
+				user.setUpdateTime(new DateUtil().getNowDateTime());
+				b = new UserDao_b1().updateUser(user);
+			}else {
+				message.setSubject("查無此帳號");
+				
+			}
 			
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);

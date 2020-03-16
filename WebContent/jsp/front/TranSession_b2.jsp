@@ -19,25 +19,61 @@
         %>
         
         <%
+        	CommonUtil comm = new CommonUtil();
         	String Id = request.getParameter("id");
-        	String Quantity = request.getParameter("quantity");
-        	Integer BuyCount = new CommonUtil().StringToInt(session.getAttribute("BuyCount"));
-        	ArrayList<Map<String,String>> buylist;
+        	Integer oldQuantity = comm.StringToInt(request.getParameter("quantity"));
+        	String action = comm.getString(request.getParameter("action"));
+        	Integer BuyCount = comm.StringToInt(session.getAttribute("BuyCount"));
+        	Integer newQuantity = oldQuantity;
+
+        	ArrayList<Map<String,String>> oldBuylist;
         	if((session.getAttribute("Buylist"))==null){
-        		buylist = new ArrayList<Map<String,String>>();
+        		oldBuylist = new ArrayList<Map<String,String>>();
         	} else {
-        		buylist=(ArrayList<Map<String,String>>)session.getAttribute("Buylist");
+        		oldBuylist=(ArrayList<Map<String,String>>)session.getAttribute("Buylist");
         	}
         	
-        	Map<String,String> map = new HashMap<String,String>();
-	        map.put("wineId", Id);
-	        map.put("quantity", Quantity);	        
-	        
-	        buylist.add(map);
-	        session.setAttribute("Buylist", buylist);
-	        
-	        BuyCount += Integer.parseInt(Quantity);
-	        session.setAttribute("BuyCount", BuyCount);
-	       	
-	        
+           	ArrayList<Map<String,String>> newBuylist = new ArrayList<Map<String,String>>();
+           	Map<String,String> newMap = null;
+           	int hasMatch = 0;
+           	for (Map<String, String> oldMap : oldBuylist) {
+           		newMap = new HashMap<String,String>();
+   				System.out.println(oldMap.get("wineId"));
+   				System.out.println(Integer.parseInt(oldMap.get("quantity")));
+   				if(Id.equals(oldMap.get("wineId"))){
+   					hasMatch ++;
+   					if(!action.equals("delItems")){
+	   					newMap.put("wineId", Id);
+	   		        	if(action.equals("addItems")){
+		   					newQuantity = Integer.parseInt(oldMap.get("quantity")) + oldQuantity;
+	   		        	}else if(action.equals("minusItems") || action.equals("plusItems")){
+		   					newQuantity = oldQuantity;
+	  		        	}
+	   		        	newMap.put("quantity", String.valueOf(newQuantity));
+	   	   	           	newBuylist.add(newMap);
+   		        	}
+   				}else{
+   					newMap = oldMap;
+   	   	           	newBuylist.add(newMap);
+   				}
+   			}
+           	if(hasMatch == 0){
+           		newMap = new HashMap<String,String>();
+           		newMap.put("wineId", Id);
+           		newMap.put("quantity", String.valueOf(newQuantity));
+               	newBuylist.add(newMap);
+           	}
+   	        
+   	        session.setAttribute("Buylist", newBuylist);
+
+        	if(action.equals("addItems")){
+       	        BuyCount += oldQuantity;
+        	}else if(action.equals("minusItems")){
+       	        BuyCount -= 1;
+        	}else if(action.equals("plusItems")){
+       	        BuyCount += 1;
+        	}else if(action.equals("delItems")){
+       	        BuyCount -= oldQuantity;
+        	}
+   	        session.setAttribute("BuyCount", BuyCount);
         %>         
