@@ -29,9 +29,9 @@
 			
 			<!-- Sommerlier推薦酒的開頭詞 -->
         	<div class="welcome" style="display:block"> 
-				<img src="../../imgs/common/webImg-08.png" style="width: 100%"> 
+				<img src="../../imgs/common/webImg-08.png" style="width: 100% ; top:10px"> 
 				<span class="QuesWord">
-					感謝您的回答，本次為您推薦的酒款如下方顯示<br><br>
+					感謝您的回答，本次為您推薦的酒款如下方顯示<br>
 					希望您還滿意這項服務並期待您再度光臨～
 				</span> 
 			</div> 
@@ -68,12 +68,12 @@
 						</table>
 						
 						<!-- 上面的小div是數量選擇鈕，下面的button是傳到購物車 -->						
-						<div style="width:60%; margin-left:25%">
+						<div style="width:60%; margin:0% 25%;text-align:center">
 							<div style="float: left;">
 								<input type="button" value="-" id="del" onclick="del()"/>
 								<span id="quantity">1</span>
 								<input type="button" value="+" id="add" onclick="add()"/>
-							</div>&nbsp;
+							</div>&emsp;
 							
 							
 							<button class="CartButtonSet" onclick="clicktoShop()">加入詢問單</button>							

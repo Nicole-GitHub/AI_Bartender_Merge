@@ -45,7 +45,6 @@
 			</div>
 		</div>
 	</div>
-	
 	<div id="winelist" class="showWine">
 		<table border="0">
 			<tr>

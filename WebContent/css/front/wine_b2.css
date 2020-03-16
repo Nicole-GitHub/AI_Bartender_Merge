@@ -26,42 +26,47 @@ ul{
 	list-style:none;
 	margin:0;
 	padding:0;
+	
 	}
 ul li{
 	cursor:pointer;
 	margin:0.8vw;
+
 	}
 
 /*列出商品*/
 .showWine{
 	background-image: url(../../imgs/common/webImg-15.png) ;
-	padding-top: 3vh;
-    background-size: 100%;
-    background-attachment: fixed;
+	background-size:100%;
+	padding-top: 3vh;    
+	background-attachment: fixed;
     background-repeat: no-repeat;
-    background-position: top;
+    /*top: 17vw;*/
+    /*z-index: -1;*/
 }
 .showWine table{
 	margin:auto;
 	width:70%;	
 	font-size:0.8vw;
 	text-align:center;
-	border-spacing: 1.5vw;
+	border-spacing: 2vw;
 	color:#393332;
 	font-family:Arial, Microsoft JhengHei;
 }
+.showWine table a{
+	text-decoration:none;
+}
 .showWine td {
 	border: 1px black solid;
-	padding:1vh 1vw;
+	padding:2vw;
 	background:white;
 }
 .showWine p{
 	color:#393332;
-	margin:0.5vh;
 	font-family:Arial, Microsoft JhengHei;
+	
 }
 .showWine p2{
-	font-weight: bold;
 	color:#A11E4A;
 	font-family:Arial, Microsoft JhengHei;
 }

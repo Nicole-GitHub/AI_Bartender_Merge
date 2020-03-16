@@ -22,7 +22,7 @@
 		        	<div class="welcome" style="display:block"> 
 						<img src="../../imgs/common/webImg-08.png" style="width: 100%"> 
 						<span class="QuesWord">
-							歡迎來到AI侍酒室，我是侍酒師D.B。我將提供最專業的服務！<br><br>
+							歡迎來到AI侍酒室，我是侍酒師D.B。我將提供最專業的服務！<br>
 							您只需回答簡單的問題，讓我為您挑選本次最適合的酒款～
 						</span> 
 					</div> 
