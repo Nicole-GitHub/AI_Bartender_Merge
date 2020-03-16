@@ -39,12 +39,12 @@
 				<form>
 					<table class="qt" align="center" border="0"  style="padding-top: 2vh;height:20vh">
 						<tr >
-							<td style="white-space: nowrap;">會員帳號(E-mail)：<input type="email" id="qemail" value="" placeholder="eamil@example.com" style="width:200px"/></td>
+							<td style="white-space: nowrap;">會員帳號(E-mail)：<input type="text" id="qemail" value="" style="width:200px"/></td>
 							<td style="white-space: nowrap;">姓名：<input type="text" id="qname" value="" style="width:142px"/></td>
 						</tr>
 						<tr>
 							<td style="white-space: nowrap;">通訊地址：<input type="text" id="qaddress" value="" style="width:255px"/></td>
-							<td style="white-space: nowrap;">聯絡電話：<input type="tel" id="qmobile" value="" placeholder="0900-000-000" style="width:110px"/></td>
+							<td style="white-space: nowrap;">聯絡電話：<input type="tel" id="qmobile" value="" style="width:110px"/></td>
 						</tr>
 						<tr>
 							<td style="white-space: nowrap;">會員狀態：<select id="qstatus">
@@ -53,13 +53,26 @@
 									<option value="inactive">inactive</option>
 							</select>
 							</td>
-							<td style="white-space: nowrap;">生日：<input id="qbady" type="text" value="" placeholder="2002-03-11" style="width:142px"/></td>
+							<td style="white-space: nowrap;">生日：<input id="qbday" type="text" value="" placeholder="2001-03-11" style="width:142px"/></td>
 						</tr>
 					</table>
 					
 					<button class="pinkbtn" onclick="query()">查詢</button>
 					<button class="pinkbtn" type="reset">清除</button>
 				</form>
+				 <c:set var="isnull" value="${ requestScope.isNull }"/>
+				 <c:if test="${ isnull=='notnull' }" >
+						<script>
+							$("#qemail").val("${ showform[0] }"); 
+							$("#qname").val("${ showform[1] }");
+							$("#qaddress").val("${ showform[2] }");
+							$("#qmobile").val("${ showform[3] }");
+							$("#qstatus").val("${ showform[4] }");
+							$("#qbday").val("${ showform[5] }");
+						</script>
+						
+					</c:if>
+				
 				</div>
 				<div class="righttitle">
 					<span>會員查詢&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
@@ -106,20 +119,21 @@
 								<span>最後修改時間 : ${uptime}</span>
 							</td>
 							<td>
-								<input type="button" class="pinkbtn" id="upbutton"value="修改" /> <br> 
+								<input type="button" class="pinkbtn" id="upbutton" value="修改" /> <br> 
 								<input type="button" class="pinkbtn" id="delbutton" value="刪除" />
 							</td>
 						</tr>
 					</c:forEach>
 				</table>
 				
-				<div class="chgPage">
-					<span id="spanFirst">首頁</span>&nbsp;&nbsp; 
-					<span id="spanPre">上一頁</span>&nbsp;&nbsp;
-					<span id="spanNext">下一頁</span>&nbsp;&nbsp; 
-					<span id="spanLast">尾頁</span>&nbsp;&nbsp;
-					第 <span id="spanPageNum"></span> 頁/共 
-					<span id="spanTotalPage"></span> 頁
+				<div class="chgPage" style="margin-top:3px;">
+					<button disabled="disabled" onclick="firstPage()" id="spanFirst">|&lt;</button>&nbsp;&nbsp; 
+					<button disabled="disabled" onclick="prePage()" id="spanPre">&lt;</button>&nbsp;&nbsp;
+					<span align="center" id="spanPageNum"></span>&nbsp;&nbsp; 
+					<button disabled="disabled" onclick="nextPage()" id="spanNext">&gt;</button>&nbsp;&nbsp; 
+					<button disabled="disabled" onclick="lastPage()" id="spanLast">&gt;|</button>&nbsp;&nbsp;
+					<input type="hidden" id="spanTotalPage" value="">
+					
 				</div>
 			</div>
 		</div>
@@ -170,6 +184,12 @@
 			
 		});
 		function query() {
+			var email = $("#qemail").val();
+			var name = $("#qname").val();
+			var address = $("#qaddress").val();
+			var mobile = $("#qmobile").val();
+			var status = $("#qstatus").val();
+			var bady = $("#qbday").val();
 			$.ajax({
 				url : "queryShow_c1",
 				type : "POST",
@@ -180,17 +200,20 @@
 					"qaddress" : $("#qaddress").val(),
 					"qmobile" : $("#qmobile").val(),
 					"qstatus" : $("#qstatus").val(),
-					"qbday" : $("#qbady").val()
+					"qbday" : $("#qbday").val()
 				}, // 輸入的資料
 				cache : false,
 				async : false,
 				success : function(response) {
-					$("#showrs").html(response);
+					//$("#showrs").html(response);
+					//$("#qname").val("你好"); 	
+					
 				},
 				error : function(xhr) {
-					alert("NetWork Error!!");
+					alert("查詢內容有誤!!");
 				}
 			});
+			
 		}
 	</script>
 

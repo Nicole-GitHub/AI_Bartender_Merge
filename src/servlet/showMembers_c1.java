@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import dao.membersDao_c1;
 
 /**
@@ -40,8 +41,10 @@ public class showMembers_c1 extends HttpServlet {
 		}
 		
 		if (who.equals("query")) {
+			request.setAttribute("showform",request.getSession().getAttribute("showform"));
+			request.setAttribute("isNull",request.getSession().getAttribute("isNull"));
 			request.setAttribute("list",request.getSession().getAttribute("list"));
-			request.getSession().removeAttribute("list");
+			//request.getSession().removeAttribute("list");
 			who = "select";
 			request.getRequestDispatcher("jsp/back/members_c1.jsp").forward(request, response);
 		}

@@ -123,7 +123,7 @@ function showCurrPage(cpn) {
 }
 
 function showTotalPage() {
-	pageNumSpan.innerHTML = pageNum;
+	
 }
 // 隱藏所有行
 function hide() {
@@ -134,29 +134,31 @@ function hide() {
 
 // 控制首頁等功能的顯示與不顯示
 function firstLink() {
-	firstSpan.innerHTML = "<a href='javascript:firstPage();'>首頁</a>";
+	firstSpan.disabled="";
+	
 }
 function firstText() {
-	firstSpan.innerHTML = "首頁";
+	firstSpan.disabled="disabled";
+	
 }
 
 function preLink() {
-	preSpan.innerHTML = "<a href='javascript:prePage();'>上一頁</a>";
+	preSpan.disabled="";
 }
 function preText() {
-	preSpan.innerHTML = "上一頁";
+	preSpan.disabled="disabled";
 }
 
 function nextLink() {
-	nextSpan.innerHTML = "<a href='javascript:nextPage();'>下一頁</a>";
+	nextSpan.disabled="";
 }
 function nextText() {
-	nextSpan.innerHTML = "下一頁";
+	nextSpan.disabled="disabled";
 }
 
 function lastLink() {
-	lastSpan.innerHTML = "<a href='javascript:lastPage();'>尾頁</a>";
+	lastSpan.disabled="";
 }
 function lastText() {
-	lastSpan.innerHTML = "尾頁";
+	lastSpan.disabled="disabled";
 }

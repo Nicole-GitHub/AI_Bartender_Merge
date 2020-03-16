@@ -61,9 +61,11 @@
 				<td>最後修改時間 : ${ uptime }</td>
 			</tr>
 			<tr>
-				<td><button class="pinkbtn" onclick="update()" >確認修改</button></td>
-
+				<td><button class="pinkbtn" onclick="update()" >確認修改</button>
+				<button class="pinkbtn" onclick="javascript:location.href='./showMembers_c1'" >回查詢頁</button></td>
+			</tr>
 		</table>
+		
 		
 	</div>
 	<div class="righttitle">
@@ -73,8 +75,8 @@
 		var ty = "${requestScope.members['type']}";
 		var st = "${requestScope.members['status']}";
 		var uemail = "${ requestScope.members['email']}";
-		if (ty=="一般會員")
-			$('#type option[value=一般會員]').attr('selected','selected');
+		if (ty=="normal")
+			$('#type option[value=normal]').attr('selected','selected');
 		if (ty=="管理者")
 			$('#type option[value=管理者]').attr('selected','selected');
 		if (st=="active")
@@ -89,7 +91,7 @@
 				"uaddress":$("#address").val(),
 				"utype":$("#type").val(),
 				"ustatus":$("#status").val(),
-				"uupdateUser":$("#userName").text()},function(data){
+				"uupdateUser":"admin"},function(data){
 					alert("修改完成");
 					});
 		}

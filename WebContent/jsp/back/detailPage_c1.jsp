@@ -54,6 +54,9 @@
 			<tr>
 				<td>最後修改時間 : ${ uptime }</td>
 			</tr>
+			<tr>
+				<td><button class="pinkbtn" onclick="javascript:location.href='./showMembers_c1'" >回查詢頁</button></td>
+			</tr>
 			
 
 		</table>
