@@ -52,6 +52,7 @@ public class UserDao_b1 {
 				user_b1 = new User_b1();
 				user_b1.setEmail(email);
 				user_b1.setName(rs.getString("name"));
+				user_b1.setPassword(rs.getString("password"));
 				user_b1.setMobile(rs.getString("mobile"));
 				user_b1.setAddress(rs.getString("address"));
 				user_b1.setBday(rs.getString("bday"));
@@ -113,7 +114,7 @@ public class UserDao_b1 {
 		String sql = "update users set password=? where email=?";
 		try {
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, password);
+			ps.setString(1,  email.substring(0,email.indexOf("@"))+"123");
 			ps.setString(2, email);
 			ps.executeUpdate();
 			return true;
