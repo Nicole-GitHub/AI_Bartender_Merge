@@ -12,9 +12,14 @@ $(document).ready(function() {
 
     // 確定新增
 	$("#add").click(function() {
-//		if(validate($("#enName").val(),"訂購人") && validate($("#status").val(),"訂單狀態")){
+		if(validate($("#enName").val(),"英文名稱") && validate($("#chName").val(),"中文名稱")
+		 && validate($("#grape").val(),"品種") && validate($("#type").val(),"酒種")
+		  && validate($("#place").val(),"產地") && validate($("#percent").val(),"酒精濃度")
+		   && validate($("#ml").val(),"容量") && validate($("#unit").val(),"銷售單位")
+			&& validate($("#price").val(),"價格") && validate($("#status").val(),"商品狀態")
+			 && validate($("#feature").val(),"特色")){
 			$("#form").submit();
-//		}
+		}
     });
 	
 	// 取消

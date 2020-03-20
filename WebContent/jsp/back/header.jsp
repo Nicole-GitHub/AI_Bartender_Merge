@@ -25,8 +25,8 @@
        <!-- body -->
        <div class="body">
 			<div class="nav">
-				<p><a href="${param.isServlet ? '.' : '../..'}/jsp/back/PO.jsp">訂單管理</a></p>
-				<p><a href="${param.isServlet ? '.' : '../..'}/jsp/back/Wine.jsp">商品管理</a></p>
-				<p><a href="${param.isServlet ? '.' : '../..'}/showMembers_c1">會員管理</a></p>
+				<button class="but" id="b1" onclick="location.href='${param.isServlet ? '.' : '../..'}/jsp/back/PO.jsp?x=1'">訂單管理</button>
+				<button class="but" id="b2" onclick="location.href='${param.isServlet ? '.' : '../..'}/jsp/back/Wine.jsp'">商品管理</button>
+				<button class="but" id="b3" onclick="location.href='${param.isServlet ? '.' : '../..'}/showMembers_c1'">會員管理</button>
 			</div>
 			<div class="bodyRight">

@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.SQLException;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -19,6 +20,8 @@ import javax.servlet.http.Part;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
+import util.CommonUtil;
+import util.ExcelImg;
 import util.ExcelUtil;
 import util.FileUtil;
 
@@ -48,15 +51,15 @@ public class Import extends HttpServlet {
 
     	Part part = request.getPart("uploadXlsx");
 		System.out.println(part);
-		
-		String filename = fileUtil.getFilename(part);
-		System.out.println("newFilename="+filename);
-		String tempFilePath = getServletContext().getRealPath("/")+filename;		
+
+		Map<String,String> map = fileUtil.getFilename(part);
+		System.out.println("newFilename="+map.get("fileFullName"));
+		String tempFilePath = getServletContext().getRealPath("/")+"upload/"+map.get("fileFullName");		
 
 		try {
-			if(filename != null) {
-
+			if(!new CommonUtil().getString(map.get("fileFullName")).isEmpty()) {
 				fileUtil.writeTo(tempFilePath, part);
+//				ExcelImg.getDataFromExcel(tempFilePath);
 				new ExcelUtil().imp(tempFilePath);
 				rs = "ok";
 			}

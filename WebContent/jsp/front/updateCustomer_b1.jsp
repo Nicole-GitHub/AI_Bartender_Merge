@@ -9,7 +9,7 @@
 <script src="./js/front/updateCustomer_new.js"></script>
 <!-- /banner -->
 <div class="body">
-	<img src="./imgs/common/WebPhoto/photo-05.jpg" style="width: 100%">
+	<img class="banner2" src="./imgs/common/WebPhoto/photo-05.jpg" style="width: 100%">
 	<div class="bgImg16 bgImg">
 		<div class="content">
 			<div class="label">
@@ -38,14 +38,15 @@
 				<br> <label>通訊地址*</label><br> <input style="width:100%; height:1.7vw"
 					type="text" name="address" id="address" value="${user.address}"
 					required="required" /><br>
-				<br>
+				<br/>
 
 					<div>
-						<input type="button" class="btn" onclick="updateCustomer()"
-							value="確認修改" />
+						<input type="button" class="btn" onclick="updateCustomer()" value="確認修改" />
 					</div>
 				</font>
 			</div>
 		</div>
+	</div>
+</div>
 
 <jsp:include page="footer.jsp" />

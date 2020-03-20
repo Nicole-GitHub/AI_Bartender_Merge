@@ -113,5 +113,10 @@
 		<input type="button" value="回訂單查詢" name="cancel" id="cancel" >
 	</div>
 </div>
-
+<script>
+	var y="${param.x}";
+	if (y=1){
+		$("#b1").css("background-color","#898989");
+	}
+</script>
 <jsp:include page="footer.jsp"></jsp:include>

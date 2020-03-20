@@ -175,5 +175,11 @@
 		</div>
 	</form>
 </div>
+<script>
+	var y="${param.x}";
+	if (y=1){
+		$("#b1").css("background-color","#898989");
+	}
+</script>
 
 <jsp:include page="footer.jsp"></jsp:include>

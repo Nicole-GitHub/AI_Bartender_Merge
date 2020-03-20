@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
@@ -23,15 +25,19 @@ public class FileUtil {
 		}
 	}
 	
-	public String getFilename(Part part) {
+	public Map<String,String> getFilename(Part part) {
         String header = part.getHeader("Content-Disposition");
         String filename = header.substring(header.indexOf("filename=\"") + 10,
                 header.lastIndexOf("\""));
         if(filename.equals("")) {
         	return null;
         }
-        String newfilename = "imgs/"+filename+"";
-        return newfilename;
+        Map<String,String> map = new HashMap<String,String>();
+        map.put("fileName",filename.substring(0,filename.lastIndexOf(".")));
+        map.put("fileAuxName", filename.substring(filename.lastIndexOf(".")));
+        map.put("fileFullName", filename);
+//        String newfilename = "imgs/"+filename+"";
+        return map;
     }
 	public void writeTo(String tempFilePath, Part part) throws IOException,
             FileNotFoundException {

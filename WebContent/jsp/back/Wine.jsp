@@ -146,7 +146,7 @@
 						<tr style='background-color:${vs.index % 2 == 0 ? "#FFF" : "#FDEBE0" }' >
 							<td>
 								<a href="WineDetail.jsp?id=${wine.id}">
-									<img src="../../${wine.imgPath}" style="height:8vh;border:1px #898989a6 solid;" >
+									<img src="../../${empty wine.imgPath ? 'imgs/common/WebPhoto/noWine.jpg' : wine.imgPath }" style="height:8vh;border:1px #898989a6 solid;" >
 								</a>
 							</td>
 							<td>
@@ -205,6 +205,13 @@
 			</c:if>
 		</form>
 	</div>
+	<script>
+	var y="${param.x}";
+	if (y=1){
+		$("#b2").css("background-color","#898989");
+	}
+</script>
+	
 <jsp:include page="footer.jsp"/>
 
 

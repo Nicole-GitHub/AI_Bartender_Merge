@@ -94,21 +94,12 @@ public class SendEmailServlet_b1 extends HttpServlet {
 				message.setSubject("AI_Bartender：重新設定密碼");
 				message.setContent(
 						"<font face=\"微軟正黑體\">"
-						+ "	<h2>您好:<br/>"
-						+ "		您已申請重新設置密碼功能，此郵件會協助您重新設置密碼。<br/>"
-						+ "		請先使用認證密碼登入後再至會員管理自行修改:"+newRandomPassword+"<br/>"
-						+ "		請使用下列連結進行密碼重置："
-						+ "	</h2>"
-						+ "</font>"
-						+ "<h2>"
-						+ "	<font face=\"微軟正黑體\">"
-						+ "		<u>"
-						+ "			<a href='"+request.getRequestURL()+"/../jsp/front/login_b1.jsp?email="+to+"'> 點擊驗證重置密碼</a>"
-						+ "		</u>"
-						+ "		<br/><br/>"
+						+ "	<h2>"
+						+ "		您好，我們已收到您申請重新設置密碼的需求，此郵件會協助您重新設置密碼。<br/><br/>"
+						+ "		您的新密碼為：<span style='color:red'>"+newRandomPassword+"</span><br/><br/>"
+						+ "		請先使用此密碼 <a href='"+request.getRequestURL()+"/../jsp/front/login_b1.jsp'> 登入 </a> 後再至會員管理進行修改密碼動作。<br/><br/>"
 						+ "		AI_Bartender 敬上"
-						+ "	</font>"
-						+ "</h2>"
+						+ "	</h2>"
 						, "text/html;charset=utf-8");
 				Transport transport = session.getTransport("smtp");
 				transport.connect(host, port, username, password);

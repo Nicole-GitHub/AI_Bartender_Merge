@@ -37,13 +37,15 @@
 	               <a href="${param.isServlet ? '.' : '../..'}/jsp/front/login_b1.jsp"><span>登入</span></a>&emsp;
                    <a href="${param.isServlet ? '.' : '../..'}/jsp/front/cart.jsp">
                    		<img src="${param.isServlet ? '.' : '../..'}/imgs/common/webImg-03.png" class="cart" />
-	                   	<c:if test="${not empty BuyCount}">
-	                   		<span>(${sessionScope.BuyCount})</span>
-	                   	</c:if>	
-                   	</a>
-                   </div>
-                 </div>
-               </c:if>
+	                   	<span id="BuyCount">
+	                   		<c:if test="${not empty BuyCount && BuyCount > 0}">
+	                   			(${sessionScope.BuyCount})
+	                   		</c:if>
+                   		</span>
+               		</a>
+               </div>
+           </div>
+        </c:if>
                
           
          <c:if test="${not empty Users.name }">
@@ -58,15 +60,17 @@
 	               <a href="${param.isServlet ? '.' : '../..'}/LogoutServlet_b1"><span>登出</span></a>&emsp;
                    <a href="${param.isServlet ? '.' : '../..'}/jsp/front/cart.jsp">
                    		<img src="${param.isServlet ? '.' : '../..'}/imgs/common/webImg-03.png" class="cart" />
-	                   	<c:if test="${not empty BuyCount}">
-	                   		<span>(${sessionScope.BuyCount})</span>
-	                   	</c:if>
-                   	  </a>
-                   	</div>
-                 </div>
-              </c:if>    
-          </div>
-      
+	                   	<span id="BuyCount">
+	                   		<c:if test="${not empty BuyCount && BuyCount > 0}">
+	                   			(${sessionScope.BuyCount})
+	                   		</c:if>
+                   		</span>
+               	  </a>
+           		</div>
+            </div>
+         </c:if>    
+       </div>
+   
        <!-- /header -->
        <!-- banner -->
        <div class="banner" >

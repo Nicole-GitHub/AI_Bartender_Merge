@@ -33,7 +33,7 @@
 			<form id="form" action="../../WineServlet" enctype="multipart/form-data" method="post">
 				<table class="contentTable">
 					<tr>
-						<td rowspan=10><img src="../../${wineList[0].imgPath }" width="300px"></td>
+						<td rowspan=10><img src="../../${empty wineList[0].imgPath ? 'imgs/common/WebPhoto/noWine.jpg' : wineList[0].imgPath }" width="300px"></td>
 					</tr>
 					<tr>
 						<th><label>商品編號：</label></th>
@@ -85,5 +85,10 @@
 		</div>
 	</div>
 </div>
-
+<script>
+	var y="${param.x}";
+	if (y=1){
+		$("#b2").css("background-color","#898989");
+	}
+</script>
 <jsp:include page="footer.jsp"></jsp:include>

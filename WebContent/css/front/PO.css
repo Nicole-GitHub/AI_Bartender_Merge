@@ -86,10 +86,10 @@ img[name="del"] , img[name="delTR"] {
 }
 .quantityTD div div{
 	float:left;
-    border: 1.5px #898989a6 solid;
+    /*border: 1.5px #898989a6 solid;*/
 }
 .quantityTD div input{
-	border: 0;
+	/*border: 0;*/
 }
 .showQuantityNum{
 	border:0 !important;

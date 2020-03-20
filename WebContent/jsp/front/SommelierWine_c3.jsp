@@ -44,28 +44,44 @@
 				<div style="position: absolute; top: 2vw; left: 39vw; width: 20%">
 					<div style="top: 1vw; left: 39vw; width: 100%; border-style:solid; border-color:#D4D4D4">
 						<p>   </p>
-						<table>
+						
 						
 						<%
 							//顯示圖片、英文名、中文名、價格
 							ResultSet rs=new AiSommelierDAO_b1().query(Purpose, Dish, PRICE);
 							//ResultSet rs=new AiSommelierDAO().query("Gift/Sad", "Beef", 1000);
-							System.out.println(rs.next());
-							out.println(
-								"<tr>"+
-									"<td>"+
-										"<img class='wineImg' src='../../"+rs.getString("imgPath")+"' onclick='clicktoWine()'>"+
-										"<p>"+rs.getString("enName")+
-										"<p>"+rs.getString("chName")+
-										"<hr>"+
-										"<p style='text-decoration:line-through'>市價 : $"+(int)(rs.getInt("price")/0.8)+
-										"<p style='color:#A11E4A'>會員價 : $"+rs.getInt("price"));
+							//System.out.println(rs.next());
+							
+							int dataNum = 0;
+							while(rs.next()){
+								dataNum++;
+							
+								out.println(
+										"<table>"+
+											"<tr>"+
+												"<td>"+
+													"<img class='wineImg' src='../../"+rs.getString("imgPath")+"' onclick='clicktoWine()'>"+
+													"<p>"+rs.getString("enName")+
+													"<p>"+rs.getString("chName")+
+													"<hr>"+
+													"<p style='text-decoration:line-through'>市價 : $"+(int)(rs.getInt("price")/0.8)+
+													"<p style='color:#A11E4A'>會員價 : $"+rs.getInt("price")+
+													"<p>    </p>"+
+													"<input type='hidden' id='SessionID' value='"+rs.getString("id")+ "'>"+
+													"<input type='hidden' id='SessionPrice' value='"+rs.getInt("price")+ "'>"+
+												"</td>"+
+											"</tr>"+
+										"</table>"	
+												
+								);
+							}
+							if(dataNum == 0){
+								response.sendRedirect("nullsqlPage_c3.jsp");
+							}
+							 
 						%>
-										<p>    </p>
-									</td>
-								</tr>
 						
-						</table>
+						
 						
 						<!-- 上面的小div是數量選擇鈕，下面的button是傳到購物車 -->						
 						<div style="width:60%; margin:0% 25%;text-align:center">
@@ -82,7 +98,7 @@
 					</div>
 					
 					<!-- 讓JS能抓到id的隱藏欄位 -->
-					<input type="hidden" id="SessionID" value="<%=rs.getString("id") %>">
+					
 					<p>    </p>
 					
 					<!-- 回到AiSommelier頁面 -->

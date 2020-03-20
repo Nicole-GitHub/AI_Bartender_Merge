@@ -34,14 +34,14 @@
 				</c:forEach>
 				<hr>
 				
-				
-					數量:
-   					<input type="number" id="quantity" min="1" max="10" value="1">
-   					<input type="button" id="addcart" onclick="addcart()" style="background-color:#A11E4A;color:white;" value="加入詢問單" >
+				<input type="button" value="-" id="del" />
+				<span id="quantity">1</span>
+				<input type="button" value="+" id="add" />
+				<input type="button" id="addcart" style="background-color:#A11E4A;color:white;" value="加入詢問單" >
 				
 			    <h6>*以客服人員確認的金額與數量為準</h6>
 			    </tr>
-			    <td><input type="button" class="back" onclick="location.href='../../AI_Bartender_Merge/wineshop_b2'" style="background-color:#A11E4A;color:white;" value="回上一頁" >
+			    <td><input type="button" class="back" onclick="history.back()" style="background-color:#A11E4A;color:white;" value="回上一頁" >
 			 </table>
 			 
 			</div>
@@ -49,27 +49,31 @@
 </div>
 <script>
 
-function addcart(){
-	//var t=0;
-	var wineID=$("#id").val();
-	var Quantity=$("#quantity").val(); 
-	//alert(wineID);
-	//alert(Quantity); 
-	$.post("jsp/front/TranSession_b2.jsp",{id:wineID,quantity:Quantity,action:"addItems"},function(data){
-		window.location.reload();
-        alert("加入購物車成功");
-		//t=$("#asd").text();
-		//t++;
-		//$("#asd").text(t);
-		//$("#div2").html(data);
-		});	
-	}	
-
-
-
-
-
 $(function(){
+
+
+	$("#del").click(function() {
+		var q = parseInt($("#quantity").text());
+		if(q > 1){
+			$("#quantity").text(q - 1);
+		}
+	});
+	$("#add").click(function() {
+		var q = parseInt($("#quantity").text());
+		$("#quantity").text(q + 1);
+	});
+
+	$("#addcart").click(function() {
+		var wineID=$("#id").val();
+		var Quantity=$("#quantity").text(); 
+		$.post("AddCart",{id:wineID,quantity:Quantity,action:"addItems"},function(data){
+			$("#BuyCount").text("("+data+")");
+	        alert("加入購物車成功");
+		});
+	});
+
+
+	
 	resize();
 	$(window).resize(function () {
 		resize();

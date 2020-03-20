@@ -34,15 +34,16 @@ public class WineDao {
 		} else {
 			sql = "update " + table + " set enName = ?, chName = ?, type = ?,"
 					+ " percent = ?, ml = ?, price = ?, unit = ?, place = ?, grape = ?,"
-					+ " feature = ?, status = ?, imgPath = ?,"
-					+ " updateUser = ? , updateTime = sysdate() where id = ? ";
+					+ " feature = ?, status = ?";
+			sql += comm.getString(wine.getImgPath()).isEmpty() ? "" : ", imgPath = ?";
+			sql += " ,updateUser = ? , updateTime = sysdate() where id = ? ";
 		}
 		
 		try {
 			if (common.getAction().equals("add")) {
 				paramIndex = 1;
 				ps = conn.prepareStatement(sql);
-				ps.setString(paramIndex++, getId(wine.getPlace()));
+				ps.setString(paramIndex++, wine.getId());
 				ps.setString(paramIndex++, wine.getEnName());
 				ps.setString(paramIndex++, wine.getChName());
 				ps.setNString(paramIndex++, wine.getType());
@@ -54,7 +55,7 @@ public class WineDao {
 				ps.setNString(paramIndex++, wine.getGrape());
 				ps.setNString(paramIndex++, wine.getFeature());
 				ps.setNString(paramIndex++, wine.getStatus());
-				ps.setNString(paramIndex++, wine.getImgPath());
+				ps.setNString(paramIndex++, comm.getString(wine.getImgPath()).isEmpty() ? "imgs/common/WebPhoto/noWine.jpg" : wine.getImgPath());
 				b = ps.executeUpdate() > 0;
 			} else if (common.getAction().equals("update")) {
 				paramIndex = 1;
@@ -70,7 +71,9 @@ public class WineDao {
 				ps.setNString(paramIndex++, wine.getGrape());
 				ps.setNString(paramIndex++, wine.getFeature());
 				ps.setNString(paramIndex++, wine.getStatus());
-				ps.setNString(paramIndex++, wine.getImgPath());
+				if(!comm.getString(wine.getImgPath()).isEmpty()) {
+					ps.setNString(paramIndex++, wine.getImgPath());
+				}
 				ps.setString(paramIndex++, "admin");
 				ps.setString(paramIndex++, wine.getId());
 				b = ps.executeUpdate() > 0;
@@ -84,8 +87,12 @@ public class WineDao {
 
 	public boolean del(Wine wine) {
 		sql = "delete from " + table + " where id = ? ";
+		String sqlSC = "delete from SommelierChoice where id = ? ";
 
 		try {
+			ps = conn.prepareStatement(sqlSC);
+			ps.setString(1, wine.getId());
+			b = ps.executeUpdate() > 0;
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, wine.getId());
 			b = ps.executeUpdate() > 0;
@@ -135,7 +142,7 @@ public class WineDao {
 			sql += " and grape like ? ";
 		}
 		
-		sql += " order by id ;";
+		sql += " order by updateTime desc ;";
 		System.out.println("sql =" + sql);
 		ArrayList<Wine> arr = new ArrayList<Wine>();
 		Wine rsWine = null;
@@ -273,34 +280,35 @@ public class WineDao {
 		ArrayList<PODetailV> list = new ArrayList<PODetailV>();
 		PODetailV rsPoDetailV;
 		String listCount = "";
-		Integer[] quantity = new Integer[buylist.size()];
 		Integer subTotal = 0;
-		Integer rsIndex = 0;
 		for (Map<String, String> map : buylist) {
 			listCount += "?,";
 		}
 //		System.out.println(listCount);
 		sql = "select * from " + table + " where id in (" + comm.delFinalWord(listCount) + ")";
 		try {
-			int i = 0;
+			int i = 1;
 			ps = conn.prepareStatement(sql);
 			for (Map<String, String> map : buylist) {
-				quantity[i++] = Integer.parseInt(map.get("quantity"));
-				ps.setString(i, map.get("wineId"));
+				ps.setString(i++, map.get("wineId"));
 			}
 			rs = ps.executeQuery();
 			while (rs.next()) {
-				rsIndex = rs.getRow() - 1;
 				rsPoDetailV = new PODetailV();
 				rsPoDetailV.setWineId(rs.getString("id"));
 				rsPoDetailV.setImgPath(rs.getString("ImgPath"));
 				rsPoDetailV.setWineChName(rs.getString("chName"));
 				rsPoDetailV.setPlace(rs.getString("Place"));
 				rsPoDetailV.setGrape(rs.getString("Grape"));
-				rsPoDetailV.setQuantity(quantity[rsIndex]);
+
+				for (Map<String, String> map : buylist) {
+					if(map.get("wineId").equals(rs.getString("id"))) {
+						rsPoDetailV.setQuantity(Integer.parseInt(map.get("quantity")));
+					}
+				}
 				rsPoDetailV.setUnit(rs.getString("unit"));
 				rsPoDetailV.setPrice(rs.getInt("Price"));
-				subTotal = quantity[rsIndex] * rs.getInt("Price");
+				subTotal = rsPoDetailV.getQuantity() * rs.getInt("Price");
 				rsPoDetailV.setSubtotal(subTotal);
 				list.add(rsPoDetailV);
 			}

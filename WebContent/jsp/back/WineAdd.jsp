@@ -40,7 +40,7 @@
 					
 					<tr>
 						<td rowspan=10>
-							<div><img src="../../${wineList[0].imgPath }" width="300px"></div>
+							<div><img src="../../${empty wineList[0].imgPath ? 'imgs/common/WebPhoto/noWine.jpg' : wineList[0].imgPath }" width="300px"></div>
 							<span style="font-weight: bold;color: red;">上傳商品圖片</span><input type="file" name="imgPath" id="imgPath">
 						</td>
 					</tr>
@@ -137,5 +137,10 @@
 		</div>
 	</div>
 </div>
-
+<script>
+	var y="${param.x}";
+	if (y=1){
+		$("#b2").css("background-color","#898989");
+	}
+</script>
 <jsp:include page="footer.jsp"></jsp:include>

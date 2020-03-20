@@ -19,7 +19,7 @@
 	PODao dao = new PODao();
 	String poId = dao.getId();
 	ArrayList<Map<String,String>> buylist = session.getAttribute("Buylist") != null ? (ArrayList<Map<String,String>>) session.getAttribute("Buylist") : new ArrayList<Map<String,String>>();
-	
+	System.out.println(buylist);
 %>
 <c:set value="${Users.email}" var="owner" />
 <script>
@@ -83,6 +83,7 @@ if(${empty owner}){
 							<input type="hidden" id="total" name="total" value="${total}">
 							<input type="hidden" id="owner" name="owner" value="${owner}">
 							<input type="hidden" id="status" name="status" value="等待專員聯繫">
+	 						<input type="button" class="button" onclick="location.href='../../wineshop_b2'" value="還想選購其它商品">
 							<input type="button" id="send" name="send" value="送出詢問單">
 						</td>
 					</tr>
@@ -95,7 +96,12 @@ if(${empty owner}){
 						</td>
 					</tr>
 				</c:if>
-				<tr style="display:none;color:#A11E4A;" id="emptyCart"><td colspan="7" style="border:0"> 您已清空購物車 </td></tr>
+				<tr style="display:none;color:#A11E4A;" id="emptyCart">
+					<td colspan="7" style="border:0"> 
+						您已清空購物車 
+						<p style="text-align:center"><input type="button" class="button" onclick="location.href='../../wineshop_b2'" value="進入酒窖選購商品"></p>
+					</td>
+				</tr>
 			</table>
 		</div>
 	</div>

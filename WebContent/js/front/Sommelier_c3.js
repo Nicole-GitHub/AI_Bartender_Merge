@@ -99,7 +99,7 @@ function add(){
 function clicktoShop(){
     var q = $("#quantity").text();
     var SessionID = $("#SessionID").val();
-    $.post("TranSession_b2.jsp",{quantity:q,id:SessionID,action:"addItems"},function(){
+    $.post("../../AddCart",{quantity:q,id:SessionID,action:"addItems"},function(){
     	location.href="cart.jsp";
     });
 //    window.location="TranSession_b2.jsp?quantity="+q+"&id="+SessionID;
@@ -112,6 +112,27 @@ function clicktoWine(){
     window.location="../../wineshop_b2?id="+SessionID;
 
 }
+
+
+/*千分位符號*/
+$(function(){
+    var SessionPrice = $("#SessionPrice").val();
+    //alert(SessionPrice);
+
+    if(SessionPrice > 1000){
+        
+        $("p").text(function(i,v){
+            return v.replace(/(?!^)(?=(\d{3})+($|\.))/g,",");
+        });
+    };
+});
+
+
+
+
+
+
+
 
 /*function clicktoWine(){
     var SessionID = $("#SessionID").text();

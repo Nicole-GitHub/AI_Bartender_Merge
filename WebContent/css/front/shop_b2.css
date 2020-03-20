@@ -2,10 +2,10 @@
 .Detailbody{
 	background-image: url(../../imgs/common/webImg-17-1.png) ;
     background-repeat:no-repeat;
-    background-size:contain;
+    background-size:100%;
+    background-position: bottom;
     /*border: 1px red solid;*/
     overflow: auto;
-    background-position: bottom;
 }
 
 .showDetail{
@@ -13,18 +13,20 @@
     /*margin-left: 20%;*/
     /*margin-bottom: 3%;*/
 	/*overflow: auto;*/
+    
+	
     /*top: 17vw;
     left:25vw;
     z-index: -1;*/
 }
 table{
 	
-	/*margin-left: 5%;*/
+	margin-left: 5%;
     /*width: 100%;*/
-    padding: 8% 0;
-    width: 80%;
+    padding: 8%;
+    width: 88%;
     border: 0;
-	text-align:center;
+	text-align:left;
 	color:#393332;
 	font-family:Arial, Microsoft JhengHei;
 	/*border-spacing: 0.5vw;*/
@@ -56,6 +58,9 @@ p2{
 
 h6{
 	color:#393332;
+	font-family:Arial, Microsoft JhengHei;
+}
+td .back{
 	font-family:Arial, Microsoft JhengHei;
 }
 hr{        

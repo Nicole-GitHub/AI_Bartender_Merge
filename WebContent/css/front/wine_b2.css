@@ -38,7 +38,7 @@ ul li{
 .showWine{
 	background-image: url(../../imgs/common/webImg-15.png) ;
 	background-size:100%;
-	padding-top: 3vh;    
+	padding-top: 41px;    
 	background-attachment: fixed;
     background-repeat: no-repeat;
     /*top: 17vw;*/
@@ -76,6 +76,13 @@ ul li{
 	font-family:Arial, Microsoft JhengHei;
 	text-decoration:line-through;
 }
+
+.showWine .s{
+	margin: auto;
+	width: 100pt;
+	font-family:Arial, Microsoft JhengHei;
+}
+
 
 .showCheckBoxRS {
 	border: 0 ; 

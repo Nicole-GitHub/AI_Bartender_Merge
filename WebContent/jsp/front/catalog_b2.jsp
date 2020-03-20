@@ -8,9 +8,8 @@
 </jsp:include>
 <link rel="stylesheet" href="./css/front/wine_b2.css"/>
 <script src="./js/front/wine_b2.js"></script>
+
 <div class="content">
-<!--	<div id="div3">show</div> -->
-<div class="showCheckBoxRS"></div>
 	<div class="filter">
 		<div class="select" id="selType">
 			<p>酒種</p>
@@ -45,12 +44,16 @@
 			</div>
 		</div>
 	</div>
+	
+	
 	<div id="winelist" class="showWine">
-		<table border="0">
-			<tr>
+	<hr>
+	<div class="showCheckBoxRS"></div>
+		<table>
+				<tr>
 				<c:forEach var="li" items="${list}" varStatus="vs">
 					<td width="25%">
-						<a href="wineshop_b2?id=${li.id}" style="text-decoration: none;">
+						<a href="wineshop_b2?id=${li.id}">
 							<img src="${li.imgPath }" width=150px><br>
 							<p>${li.enName}</p>
 							<p>${li.chName}</p> 
@@ -62,28 +65,54 @@
 						<fmt:formatNumber var="mo" type="number" value="${li.price}" maxFractionDigits="0"/>
 						<p>會員價:<p2>$${mo}</p2></p>
 						
-						<input type="hidden" id="id" value="${li.id}">
-						數量: <input type="number" name="quantity" min="1" max="999" value="1">
-						<input type="button" id="addcart" style="background-color:#A11E4A;color:white;" value="加入詢問單">
+						<input type="hidden" name="id" value="${li.id}">
+						<input type="button" value="-" name="del" />
+						<span class="quantity">1</span>
+						<input type="button" value="+" name="add" />
+						<input type="button" name="addcart" style="background-color:#A11E4A;color:white;" value="加入詢問單">
 					</td>
-					${vs.count%4==0 ? '</tr><tr>' : ''}
+					
+					${vs.count%4==0 && vs.count<=7 ? '</tr><tr>':''}
+					${vs.count%4==0 && vs.count>7 ? '</tr><tr name="divx" style=display:none>':''}
+			        	
 				</c:forEach>
 			</tr>
+			
 		</table>
+		<div class="s">
+			<button id="showall" onclick="showall()" style="background-color:#A11E4A;color:white;font-size:16pt;">顯示更多</button>
+		</div>
 	</div>
 </div>
 <script>
-	$(document).on("click", "#addcart", function() {
+	$(document).on("click", "[name=del]", function() {
+		var qSpan = $(this).parent().find(".quantity");
+		var q = parseInt(qSpan.text());
+		if(q > 1){
+			qSpan.text(q - 1);
+		}
+	});
+	$(document).on("click", "[name=add]", function() {
+		var qSpan = $(this).parent().find(".quantity");
+		var q = parseInt(qSpan.text());
+		qSpan.text(q + 1);
+	});
+
+    function showall(){
+        var row=document.getElementsByName("divx"); 
+        for(var i=0;i<row.length;i++)       
+           row[i].style.display='';
+        $("#showall").css("display","none");
+    }
+	$(document).on("click", "[name=addcart]", function() {
 		var pid = $(this).parents("td").find("input").val();
-		var q = $(this).parents("td").find("input").next().val();
-		//alert(pid);
-		//alert(q);	
-		$.post("jsp/front/TranSession_b2.jsp", {
+		var q = $(this).parents("td").find(".quantity").text();
+		$.post("AddCart", {
 			"id" : pid,
 			"quantity" : q,
 			action:"addItems"
 		}, function(data) {
-			window.location.reload();
+			$("#BuyCount").text("("+data+")");
 			alert("成功加入購物車");
 		});
 	});
@@ -109,7 +138,6 @@
 			checkboxRS += "<span>"+$(this).parent().text()+"&nbsp;<img src='./imgs/common/x.png' width='10px' val='"+$(this).val()+"' class='delCheckBoxRS'>&emsp;</span>";
 			selected.push($(this).val());
    		});
- 		$(".showCheckBoxRS").html(checkboxRS);
  		var str = JSON.stringify(selected);
  		//alert(str);
  		$.ajax({
@@ -121,6 +149,7 @@
 				async : false,
 				success : function(response){
 					$("#winelist").html(response);
+			 		$(".showCheckBoxRS").html(checkboxRS);
 				},
 				error : function(data){
 					alert("POST ERROR!");

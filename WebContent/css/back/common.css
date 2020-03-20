@@ -39,9 +39,9 @@ body{
 	margin:0;
 }
 .body .nav{
-	float:left;
-	width:10%;
-	min-width:100px;
+    float: left;
+    width: 12%;
+    margin-top: 20px;
 }
 .body .nav p a{
     color: #F9E7AA;
@@ -49,7 +49,7 @@ body{
     font-size: 12pt;
 }
 .body .bodyRight{
-	width:87%;
+	width:88%;
 	min-width:880px;
 	float:right;
 	background-color: #fff;
@@ -58,6 +58,28 @@ body{
 .footer{
 	width: 100%;
 }
+.but{
+	width: 100%;
+	transition-duration: 0.2s;
+	background-color: #393332;
+	border:none;
+	color: #F9E7AA;
+	padding-top: 2vh;
+	padding-bottom: 2vh;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 17pt;
+	font-weight:bold;
+	font-family: "Arial","Microsoft JhengHei";
+	letter-spacing:3px;
+}
+
+.but:hover {
+	background-color: #898989;
+	color: #F9E7AA;
+}
+
 .positionFix {
 	position: fixed;
 	bottom: 0;

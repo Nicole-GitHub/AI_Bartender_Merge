@@ -179,7 +179,7 @@ $(document).ready(function() {
     		c++;
     	});
     	if(c == 5){
-    		$("#send").add("#totalTD").css("display","none");
+    		$("#sendTD").add("#totalTD").css("display","none");
     		$("#emptyCart").css("display","table-row");
     		$("table th").addClass("addBorderBottom");
         }
@@ -193,8 +193,8 @@ $(document).ready(function() {
 	});
 	
 	function chgSession(wineId,quantity,action){
-		$.post("../../jsp/front/TranSession_b2.jsp",{action:action,id:wineId,quantity:quantity},function(rs){
-			location.reload();
+		$.post("../../AddCart",{action:action,id:wineId,quantity:quantity},function(data){
+			$("#BuyCount").text("("+data+")");
 		});
 	}
 });

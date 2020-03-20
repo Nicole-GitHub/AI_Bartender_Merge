@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.Map;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -37,8 +39,7 @@ public class WineServlet extends HttpServlet {
 		WineDao dao = new WineDao();
 		Common common = new Common();
 		Wine wine = new Wine();
-
-    	wine.setId(comm.getString(req.getParameter("id")));
+		
     	wine.setEnName(comm.getString(req.getParameter("enName")));
     	wine.setChName(comm.getString(req.getParameter("chName")));
     	wine.setType(comm.getString(req.getParameter("type")));
@@ -50,6 +51,8 @@ public class WineServlet extends HttpServlet {
     	wine.setGrape(comm.getString(req.getParameter("grape")));
     	wine.setFeature(comm.getString(req.getParameter("feature")));
     	wine.setStatus(comm.getString(req.getParameter("status")));
+    	String id = comm.getString(req.getParameter("id")).isEmpty() ? dao.getId(wine.getPlace()) : comm.getString(req.getParameter("id"));
+    	wine.setId(id);
     	common.setAction(comm.getString(req.getParameter("action")));
 		boolean b = false;
 		
@@ -65,13 +68,17 @@ public class WineServlet extends HttpServlet {
 	    	Part part = req.getPart("imgPath");
 			System.out.println(part);
 			
-			String filename = fileUtil.getFilename(part);
-	    	wine.setImgPath(filename);
-			System.out.println("newFilename="+filename);
-			String tempFilePath = getServletContext().getRealPath("/")+filename;		
-
-			if(filename != null) {
-				fileUtil.writeTo(tempFilePath, part);
+			Map<String,String> map = fileUtil.getFilename(part);
+			// 無上傳檔案
+			if(map != null) {
+				String imgPath = "imgs/"+wine.getId()+map.get("fileAuxName");
+		    	wine.setImgPath(imgPath);
+				System.out.println("newFilename="+map.get("fileFullName"));
+				String tempFilePath = getServletContext().getRealPath("/")+imgPath;		
+	
+				if(!comm.getString(map.get("fileFullName")).isEmpty()) {
+					fileUtil.writeTo(tempFilePath, part);
+				}
 			}
 			b = dao.update(wine,common);
 			res.sendRedirect("jsp/back/Wine.jsp");
